@@ -16,4 +16,4 @@ AR=$TOOLCHAIN-ar \
 RANLIB=$TOOLCHAIN-ranlib \
 ./configure --prefix=$BUILD_PREFIX
 
-make && make install
+make -j$COMPILE_CORES && make install

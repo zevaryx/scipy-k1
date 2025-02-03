@@ -14,8 +14,8 @@ fi
 cd Python-$VERSION
 
 ./configure \
-  --target=mipsel-buildroot-linux-gnu \
-  --host=mipsel-buildroot-linux-gnu \
+  --target=mips-linux-gnu \
+  --host=mips-linux-gnu \
   --build=x86_64-pc-linux-gnu \
   --prefix=$BUILD_PREFIX \
   --exec-prefix=$BUILD_PREFIX \
@@ -56,8 +56,8 @@ cd Python-$VERSION
   ac_cv_file__dev_ptmx=yes \
   ac_cv_file__dev_ptc=no \
   build_alias=x86_64-pc-linux-gnu \
-  host_alias=mipsel-buildroot-linux-gnu \
-  target_alias=mipsel-buildroot-linux-gnu \
+  host_alias=mips-linux-gnu \
+  target_alias=mips-linux-gnu \
   READELF="$TOOLCHAIN-readelf" \
   CC="$TOOLCHAIN-gcc" \
   CFLAGS='-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -D__USE_TIME_BITS64  -Os' \
@@ -70,5 +70,5 @@ cd Python-$VERSION
   #PKG_CONFIG=/opt/wuhui/code/creality/Pre-release/ingenic_linux_CR4CU220812S11/buildroot/buildroot/output/host/bin/pkg-config'"
 
 make clean
-make -j$(($(nproc)-1))
+make -j$COMPILE_CORES
 make install

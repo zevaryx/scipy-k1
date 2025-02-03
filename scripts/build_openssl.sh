@@ -17,4 +17,4 @@ cd "openssl-$VERSION"
     --prefix=$BUILD_PREFIX \
     --openssldir=$BUILD_PREFIX
 
-make CC=$TOOLCHAIN-gcc RANLIB=$TOOLCHAIN-ranlib LD=$TOOLCHAIN-ld MAKEDEPPROG=$TOOLCHAIN-gcc PROCESSOR=MIPSEL -j$(($(nproc)-1)) && make install
+make CC=$TOOLCHAIN-gcc RANLIB=$TOOLCHAIN-ranlib LD=$TOOLCHAIN-ld MAKEDEPPROG=$TOOLCHAIN-gcc PROCESSOR=MIPSEL -j$COMPILE_CORES && make install

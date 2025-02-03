@@ -16,7 +16,8 @@ cd OpenBLAS-$VERSION
 
 echo "Building OpenBLAS..."
 
-make BINARY=32 BINARY32=1 \
+make -j$COMPILE_CORES \
+    BINARY=32 BINARY32=1 \
     CC=$TOOLCHAIN-gcc \
     AR=$TOOLCHAIN-ar \
     FC="$TOOLCHAIN-gfortran -EL" \

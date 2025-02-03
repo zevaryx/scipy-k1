@@ -8,4 +8,8 @@ export GCC_PREFIX=mips-linux-gnu
 export TOOLCHAIN=${TOOLCHAIN_DIR}/${GCC_PREFIX}
 export COMPILE_CORES=$(($(nproc)-1))
 
+export CC="$TOOLCHAIN-gcc"
+export LDFLAGS="-L$BUILD_PREFIX/lib"
+export CPP="$TOOLCHAIN-cpp"
+
 export PATH="$TOOLCHAIN_DIR:$PATH"

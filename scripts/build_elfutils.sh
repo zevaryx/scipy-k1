@@ -24,6 +24,6 @@ cd elfutils-$VERSION
   CXX="$TOOLCHAIN-g++"
   CXXFLAGS="$CFLAGS"
 
-make && make install
+make -j$COMPILE_CORES && make install
 
 #make PREFIX=$BUILD_PREFIX install

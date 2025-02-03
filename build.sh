@@ -21,8 +21,13 @@ else
     echo "Creating ./local for prefix target..."
     mkdir -p local
 fi
+
 if [ ! -d packages ]; then
     mkdir -p packages
+fi
+
+if [ -d cross_venv ]; then
+    rm -rf cross_venv
 fi
 
 bash scripts/build_zlib.sh
@@ -30,3 +35,12 @@ bash scripts/build_zlib.sh
 bash scripts/build_python.sh
 
 bash scripts/build_openblas.sh
+
+python3 -m pip install crossenv
+python3 -m crossenv $BUILD_PREFIX/bin/python3 cross_venv
+source ./cross_venv/bin/activate
+
+# This breaks pip, but I think this is required to build scipy
+python3 -m pip install --upgrade pip
+
+pip install scipy
