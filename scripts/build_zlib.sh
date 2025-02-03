@@ -1,10 +1,10 @@
 #!/bin/bash
-VERSION="1.3.1"
+VERSION="1.2.11"
 
 cd $SOURCE_DIR
 
 if [ ! -d "zlib-$VERSION" ]; then
-    wget "https://zlib.net/zlib-$VERSION.tar.gz"
+    wget "https://zlib.net/fossils/zlib-$VERSION.tar.gz"
     tar -zxf zlib-$VERSION.tar.gz
     rm zlib-$VERSION.tar.gz
 fi
