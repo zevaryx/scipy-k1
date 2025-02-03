@@ -30,6 +30,3 @@ bash scripts/build_zlib.sh
 bash scripts/build_python.sh
 
 bash scripts/build_openblas.sh
-
-# Python links
-# https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tgz
