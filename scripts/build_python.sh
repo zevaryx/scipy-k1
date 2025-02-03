@@ -63,7 +63,12 @@ cd Python-$VERSION
   CFLAGS='-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -D__USE_TIME_BITS64  -Os' \
   LDFLAGS="-L$BUILD_PREFIX/lib" \
   CPPFLAGS='-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -D__USE_TIME_BITS64' \
-  CPP="$TOOLCHAIN-cpp" #\
+  CPP="$TOOLCHAIN-cpp" \
+  OPENSSL_INCLUDES="" \
+  OPENSSL_LDFLAGS="-L$BUILD_PREFIX/lib" \
+  OPENSSL_LIBS="-lssl -lcrypto"
   #PKG_CONFIG=/opt/wuhui/code/creality/Pre-release/ingenic_linux_CR4CU220812S11/buildroot/buildroot/output/host/bin/pkg-config'"
 
-  make -j$(($(nproc)-1))
+make clean
+make -j$(($(nproc)-1))
+make install
